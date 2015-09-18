@@ -24,7 +24,7 @@ describe('Pizza', function(){
 
     it("returns the price of 2 small pizzas with pepperoni", function(){
         var testPizza = new Pizza(2, "Small", "pepperoni", 0);
-        expect(testPizza.pizzaPrice()).to.equal(11)
+        expect(testPizza.pizzaPrice()).to.equal(12)
     });
 
 

@@ -43,10 +43,24 @@ Pizza.prototype.pricePerSize = function(){
     }
 };
 
+
+
 //Method for returning to the total price of a pizza
 //Including quantity, size and toppings
 Pizza.prototype.pizzaPrice = function(){
-    this.price = (Pizza.pricePerSize + Pizza.pricePerTopping) * Pizza.pricePerQuantity;
-    console.log(this.price);
+    if (this.size == "Small"){
+        this.size = 5;
+    } else if (this.size == "Medium"){
+        this.size = 7.5;
+    } else if (this.size == "Large"){
+        this.size = 10;
+    } else {
+        alert("That's a big pizza");
+    }
+
+    this.topping = 1;
+
+    this.price = (this.size + this.topping) * this.quantity;
+    console.log(this.size);
     return this.price;
 };
