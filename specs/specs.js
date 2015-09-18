@@ -17,10 +17,10 @@ describe('Pizza', function(){
         expect(testPizza.pricePerSize()).to.equal(7.5);
     });
 
-    it("returns the price of pepperoni and black olive toppings", function(){
-        var testPizza = new Pizza(1, "Small", ["pepperoni", "black olives"], 0);
-        expect(testPizza.pricePerTopping()).to.eql(2);
-    })
+    // it("returns the price of pepperoni and black olive toppings", function(){
+    //     var testPizza = new Pizza(1, "Small", ["pepperoni", "black olives"], 0);
+    //     expect(testPizza.pricePerTopping()).to.eql(2);
+    // })
 
     it("returns the price of 2 small plain pizzas", function(){
         var testPizza = new Pizza(2, "Small", [], 10);
@@ -32,4 +32,19 @@ describe('Pizza', function(){
     //     expect(testPizza.size).to.equal("Small");
     //     expect(testPizza.toppings("pepperoni")).to.eql(["pepperoni"]);
     // });
+});
+
+describe('Topping', function(){
+    it("creates a new topping with the given specifications", function(){
+        var testTopping = new Topping("pepperoni");
+        var testTopping2 = new Topping("black olives");
+        expect(testTopping.toppings).to.equal("pepperoni");
+        expect(testTopping2.toppings).to.equal("black olives");
+    });
+
+    // it("returns the price of two toppings", function(){
+    //     var testTopping = new Topping("pepperoni");
+    //     var testTopping2 = new Topping("black olives");
+    //     expect
+    // })
 });

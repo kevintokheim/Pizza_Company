@@ -6,9 +6,13 @@ function Pizza(quantity, size, toppings, price){
     this.toppings = [];
     this.price = price;
 };
+
+function Topping(toppings){
+    this.toppings = toppings;
+}
     // var onePizza = 7;
     // var smallPizza = 7;
-    var pizzaToppings = [""];
+    var pizzaToppings = ["pepperoni", "black olives"];
 
 Pizza.prototype.pricePerPizza = function(){
     return this.quantity * 5;
@@ -28,11 +32,8 @@ Pizza.prototype.pricePerSize = function(){
 
 Pizza.prototype.pricePerTopping = function(){
     for (var i = 0; i < pizzaToppings.length; i++){
-        if (pizzaToppings[i] == 1){
-            return 1;
-        } else if (pizzaToppings[i] > 1){
-            return 1++;
-        }
+        pizzaToppings[i] = 1;
+        pizzaToppings[i+1] = 1+1;
     }
 };
 
