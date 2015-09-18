@@ -9,12 +9,12 @@ function Pizza(quantity, size, topping, price){
 };
 
 //Method for returning the number of toppings
-Pizza.prototype.pricePerTopping = function(){
+Pizza.prototype.numberOfToppings = function(){
     return this.topping * 1;
 };
 
 //Method for returning the quantity of pizzas.
-Pizza.prototype.pricePerQuantity = function(){
+Pizza.prototype.pizzaQuantity = function(){
     return this.quantity * 1;
 };
 
@@ -63,6 +63,7 @@ $(document).ready(function(){
         event.preventDefault;
 
         var inputtedQuantity = $("$input#quantity").val();
+
         var inputtedSize = $("$input#size").val().toLowerCase();
 
         //Gets the value from the multiple toppings inputs with the class ".pizza-topping"
@@ -70,27 +71,13 @@ $(document).ready(function(){
             $(this).val();
         });
 
-        var newPizza = new Pizza(inputtedQuantity, inputtedSize, inputtedToppings);
+        var outputtedPrice = (inputtedSize + inputtedToppings) * inputtedQuantity;
 
-        $("ul#pizzas").append("<li><span class = 'pizza'>" + newPizza.quantity + newPizza.size + "</span></li>");
+        var newPizza = new Pizza(inputtedQuantity, inputtedSize, inputtedToppings, outputtedPrice);
+
+        $("ul#pizzas").append("<li><span class = 'pizza-quantity'>" + newPizza.pizzaQuantity + "</span></li>" +
+                                "<li><span class = 'pizza-size'>" + newPizza.pizzaSize + "</span></li>" +
+                                "<li><span class = 'pizza-price'>" + newPizza.pizzaPrice + "</span></li>");
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
