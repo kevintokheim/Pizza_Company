@@ -21,11 +21,11 @@ Pizza.prototype.pricePerQuantity = function(){
 //Method for returning the price per size of pizza
 //Small pizza is 5, Medium is 7.5, Large is 10
 var pizzaSize = Pizza.prototype.pricePerSize = function(){
-    if (this.size == "Small"){
+    if (this.size == "small"){
         return 5;
-    } else if (this.size == "Medium"){
+    } else if (this.size == "medium"){
         return 7.5;
-    } else if (this.size == "Large"){
+    } else if (this.size == "large"){
         return 10;
     } else {
         alert("That's a big pizza");
@@ -35,11 +35,11 @@ var pizzaSize = Pizza.prototype.pricePerSize = function(){
 //Method for returning to the total price of a pizza
 //Including quantity, size and toppings
 Pizza.prototype.pizzaPrice = function(){
-    if (this.size == "Small"){
+    if (this.size == "small"){
         this.size = 5;
-    } else if (this.size == "Medium"){
+    } else if (this.size == "medium"){
         this.size = 7.5;
-    } else if (this.size == "Large"){
+    } else if (this.size == "large"){
         this.size = 10;
     } else {
         alert("That's a big pizza");
@@ -50,10 +50,30 @@ Pizza.prototype.pizzaPrice = function(){
     return this.price;
 };
 
+function resetFields() {
+  $("input#quantity").val();
+  $("input#size").val("");
+  $("input.pizza-topping").val("");
+
+}
 
 $(document).ready(function(){
 
-    
+    $("form#new-pizza").submit(function(event){
+        event.preventDefault;
+
+        var inputtedQuantity = $("$input#quantity").val();
+        var inputtedSize = $("$input#size").val().toLowerCase();
+
+        //Gets the value from the multiple toppings inputs with the class ".pizza-topping"
+        var inputtedToppings = $("#pizza-toppings .pizza-topping").each(function(){
+            $(this).val();
+        });
+
+        var newPizza = new Pizza(inputtedQuantity, inputtedSize, inputtedToppings);
+
+        $("ul#pizzas").append("<li><span class = 'pizza'>" + newPizza.quantity + newPizza.size + "</span></li>");
+    });
 
 
 
