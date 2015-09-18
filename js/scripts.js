@@ -62,8 +62,10 @@ $(document).ready(function(){
     $("form#new-pizza").submit(function(event){
         event.preventDefault;
 
+        //number of pizzas
         var inputtedQuantity = $("$input#quantity").val();
 
+        //size of pizzas
         var inputtedSize = $("$input#size").val().toLowerCase();
 
         //Gets the value from the multiple toppings inputs with the class ".pizza-topping"
@@ -71,10 +73,14 @@ $(document).ready(function(){
             $(this).val();
         });
 
+        //total price of pizzas
         var outputtedPrice = (inputtedSize + inputtedToppings) * inputtedQuantity;
+
 
         var newPizza = new Pizza(inputtedQuantity, inputtedSize, inputtedToppings, outputtedPrice);
 
+        //NOT YET WORKING
+        //Appends user input to the pizzas list
         $("ul#pizzas").append("<li><span class = 'pizza-quantity'>" + newPizza.pizzaQuantity + "</span></li>" +
                                 "<li><span class = 'pizza-size'>" + newPizza.pizzaSize + "</span></li>" +
                                 "<li><span class = 'pizza-price'>" + newPizza.pizzaPrice + "</span></li>");
