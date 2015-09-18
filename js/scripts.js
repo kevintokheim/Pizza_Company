@@ -1,27 +1,32 @@
 //Program Logic
 
 //Constructs the Pizza object
-function Pizza(quantity, size, toppings, price){
+function Pizza(quantity, size, topping, price){
     this.quantity = quantity;
     this.size = size;
-    this.toppings = [];
+    this.topping = topping;
     this.price = price;
 };
 
-//Constructs the Topping object
-function Topping(toppings){
-    this.toppings = toppings;
+//Method for returning the price of a topping
+//One topping is worth 1 dollar
+Pizza.prototype.pricePerTopping = function(){
+    return this.topping = 1;
 };
-
-//Method for returning the price of one topping
-Topping.prototype.pricePerTopping = function(){
-    return this.toppings = 1;
-};
+// //Constructs the Topping object
+// function Topping(toppings){
+//     this.toppings = toppings;
+// };
+//
+// //Method for returning the price of one topping
+// Topping.prototype.pricePerTopping = function(){
+//     return this.toppings = 1;
+// };
 
 //Method for returning the price per pizza.
 //One pizza is 5 dollars
-Pizza.prototype.pricePerPizza = function(){
-    return this.quantity * 5;
+Pizza.prototype.pricePerQuantity = function(){
+    return this.quantity * 1;
 };
 
 //Method for returning the price per size of pizza
@@ -41,9 +46,7 @@ Pizza.prototype.pricePerSize = function(){
 //Method for returning to the total price of a pizza
 //Including quantity, size and toppings
 Pizza.prototype.pizzaPrice = function(){
-    if (this.quantity == 2 && this.size == "Small") {
-        return this.price = 10;
-    } else {
-        alert("I suck");
-    }
+    this.price = (Pizza.pricePerSize + Pizza.pricePerTopping) * Pizza.pricePerQuantity;
+    console.log(this.price);
+    return this.price;
 };
