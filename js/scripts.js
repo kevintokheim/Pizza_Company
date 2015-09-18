@@ -8,10 +8,11 @@ function Pizza(quantity, size, topping, price){
     this.price = price;
 };
 
-//Method for returning the price of a topping
+//Method for returning the number of toppings
 //One topping is worth 1 dollar
 Pizza.prototype.pricePerTopping = function(){
-    return this.topping = 1;
+    return this.topping * 1;
+    // return this.topping = 1;
 };
 // //Constructs the Topping object
 // function Topping(toppings){
@@ -58,7 +59,7 @@ Pizza.prototype.pizzaPrice = function(){
         alert("That's a big pizza");
     }
 
-    this.topping = 1;
+    // this.topping = 1;
 
     this.price = (this.size + this.topping) * this.quantity;
     console.log(this.size);
