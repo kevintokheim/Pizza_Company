@@ -1,5 +1,6 @@
 //Program Logic
 
+//Constructs the Pizza object
 function Pizza(quantity, size, toppings, price){
     this.quantity = quantity;
     this.size = size;
@@ -7,17 +8,24 @@ function Pizza(quantity, size, toppings, price){
     this.price = price;
 };
 
+//Constructs the Topping object
 function Topping(toppings){
     this.toppings = toppings;
-}
-    // var onePizza = 7;
-    // var smallPizza = 7;
-    var pizzaToppings = ["pepperoni", "black olives"];
+};
 
+//Method for returning the price of one topping
+Topping.prototype.pricePerTopping = function(){
+    return this.toppings = 1;
+};
+
+//Method for returning the price per pizza.
+//One pizza is 5 dollars
 Pizza.prototype.pricePerPizza = function(){
     return this.quantity * 5;
 };
 
+//Method for returning the price per size of pizza
+//Small pizza is 5, Medium is 7.5, Large is 10
 Pizza.prototype.pricePerSize = function(){
     if (this.size == "Small"){
         return 5;
@@ -30,13 +38,8 @@ Pizza.prototype.pricePerSize = function(){
     }
 };
 
-Pizza.prototype.pricePerTopping = function(){
-    for (var i = 0; i < pizzaToppings.length; i++){
-        pizzaToppings[i] = 1;
-        pizzaToppings[i+1] = 1+1;
-    }
-};
-
+//Method for returning to the total price of a pizza
+//Including quantity, size and toppings
 Pizza.prototype.pizzaPrice = function(){
     if (this.quantity == 2 && this.size == "Small") {
         return this.price = 10;

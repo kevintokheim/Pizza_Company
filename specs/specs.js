@@ -42,9 +42,8 @@ describe('Topping', function(){
         expect(testTopping2.toppings).to.equal("black olives");
     });
 
-    // it("returns the price of two toppings", function(){
-    //     var testTopping = new Topping("pepperoni");
-    //     var testTopping2 = new Topping("black olives");
-    //     expect
-    // })
+    it("returns the price of one topping", function(){
+        var testTopping = new Topping("pepperoni");
+        expect(testTopping.pricePerTopping()).to.equal(1);
+    });
 });
