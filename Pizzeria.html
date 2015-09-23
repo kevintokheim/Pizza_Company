@@ -1,79 +1,73 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-        <link href="css/styles.css" rel="stylesheet" type="text/css">
-        <script src="js/jquery-1.11.3.js"></script>
-        <script src="js/scripts.js"></script>
-        <title>Pizza Company</title>
-    </head>
-    <body>
-        <div class = "container">
-            <h1>Welcome to the Kevin's Pizzeria!</h1>
+<head>
+  <meta charset="utf-8">
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-1.11.3.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pizza Company</title>
+</head>
+<body>
+  <div class = "container">
+    <h1>Welcome to the Kevin's Pizzeria!</h1>
 
-            <div class = "row">
+    <div class = "row">
 
-                <div class = "col-md-6">
-                    <h2>Make yourself a pizza!</h2>
+      <div class = "col-md-6">
+        <h2>Make yourself a pizza!</h2>
 
-                    <form id = "new-pizza">
-                        <div class = "form-group">
-                            <label for = "quantity">How many pizzas would you like?</label>
-                            <input id = "quantity" name = "quantity" type = "number" class = "form-control">
-                        </div>
-                        <div class = "form-group">
-                            <label for = "size">Would you like your pizzas to be small, medium or large?</label>
-                            <input id = "size" class = "form-control" type = "text">
-                        </div>
-                        <h3>Add your toppings here. Go crazy!</h3>
-                            <div id = "pizza-toppings">
-                                <!-- <div class = "pizza-topping"> -->
-                                    <div class = "form-group">
-                                        <label for = "topping1">First topping</label>
-                                        <input id = "topping1" class = "form-control pizza-topping" type = "text">
-                                    </div>
-                                    <div class = "form-group">
-                                        <label for = "topping2">Second topping</label>
-                                        <input id = "topping2" class = "form-control pizza-topping" type = "text">
-                                    </div>
-                                    <div class = "form-group">
-                                        <label for = "topping3">Third topping</label>
-                                        <input id = "topping3" class = "form-control pizza-topping" type = "text">
-                                    </div>
-                                    <div class = "form-group">
-                                        <label for = "topping4">Fourth topping</label>
-                                        <input id = "topping4" class = "form-control pizza-topping" type = "text">
-                                    </div>
-                                    <div class = "form-group">
-                                        <label for = "topping5">Fifth topping</label>
-                                        <input id = "topping5" class = "form-control pizza-topping" type = "text">
-                                    </div>
-                                    <span class="btn btn-default" id="add-topping">Add more toppings here!</span>
-                                <!-- </div> -->
-                            </div>
-                            <button type = "submit" class = "btn btn-primary">Get your final price</button>
-                            <span class="btn btn-default" id="add-pizza">Add another pizza (or three)!</span>
-                    </form>
-
-                    <h2>Your order so far: </h2>
-                    <ul id = "pizzas">
-                    </ul>
-                </div>
-
-                <div class = "col-md-6">
-                    <div id = "show-pizzas">
-                        <h2></h2>
-
-                        <p>Quantity: <span class = "pizza-quantity"></span></p>
-                        <p>Size: <span class = "pizza-size"></span></p>
-                        <p>Toppings: </p>
-                            <ul id = "toppings">
-                            </ul>
-                        <p>Price: </p>
-                    </div>
-                </div>
+        <form id = "new-pizza">
+          <div class = "form-group">
+            <label for = "quantity">How many pizzas would you like?</label>
+            <input id = "quantity" name = "quantity" type = "number" class = "form-control">
+          </div>
+          <div class = "form-group">
+            <label for = "size">Would you like your pizzas to be small, medium or large?</label>
+            <input id = "size" class = "form-control" type = "text">
+          </div>
+          <h3>Add your toppings here. Go crazy!</h3>
+          <div id = "pizza-toppings">
+            <!-- <div class = "pizza-topping"> -->
+            <div class = "form-group">
+              <label for = "topping1">First topping</label>
+              <input id = "topping1" class = "form-control pizza-topping" type = "text">
             </div>
+            <div class = "form-group">
+              <label for = "topping2">Second topping</label>
+              <input id = "topping2" class = "form-control pizza-topping" type = "text">
+            </div>
+            <div class = "form-group">
+              <label for = "topping3">Third topping</label>
+              <input id = "topping3" class = "form-control pizza-topping" type = "text">
+            </div>
+            <div class = "form-group">
+              <label for = "topping4">Fourth topping</label>
+              <input id = "topping4" class = "form-control pizza-topping" type = "text">
+            </div>
+            <div class = "form-group">
+              <label for = "topping5">Fifth topping</label>
+              <input id = "topping5" class = "form-control pizza-topping" type = "text">
+            </div>
+            <span class="btn btn-default" id="add-topping">Add more toppings here!</span>
+            <!-- </div> -->
+          </div>
+          <button type = "submit" class = "btn btn-primary">Get your final price</button>
+          <span class="btn btn-default" id="add-pizza">Add another pizza (or three)!</span>
+        </form>
+
+        <div id="finalorder">
+          <h2>Your order so far: </h2>
+          <div class = "col-md-6">
+            <div id = "show-pizzas">
+              <p>Quantity: <span class="pizza-quantity"></span></p>
+              <p>Size: <span class="pizza-size"></span></p>
+              <p>Toppings: <span class="pizza-topping"></span></p>
+              <p>Price: $<span class="pizza-price"></span></p>
+            </div>
+          </div>
         </div>
-    </body>
-</html>
+      </div>
+    </div>
+  </body>
+  </html>

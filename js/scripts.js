@@ -4,18 +4,18 @@
 function Pizza(quantity, size, topping, price){
     this.quantity = quantity;
     this.size = size;
-    this.topping = topping;
+    this.toppings = topping;
     this.price = price;
 };
 
 //Method for returning the number of toppings
 Pizza.prototype.numberOfToppings = function(){
-    return this.topping * 1;
+    return this.toppings.length;
 };
 
 //Method for returning the quantity of pizzas.
 Pizza.prototype.pizzaQuantity = function(){
-    return this.quantity * 1;
+    return this.quantity;
 };
 
 //Method for returning the price per size of pizza
@@ -43,9 +43,10 @@ Pizza.prototype.pizzaPrice = function(){
         this.size = 10;
     } else {
         alert("That's a big pizza");
+        this.size = 15;
     }
 
-    this.price = (this.size + this.topping) * this.quantity;
+    this.price = (parseInt(this.size) + parseInt(this.toppings.length)) * parseInt(this.quantity);
 
     return this.price;
 };
@@ -55,35 +56,39 @@ function resetFields() {
   $("input#size").val("");
   $("input.pizza-topping").val("");
 
-}
+};
 
 $(document).ready(function(){
 
     $("form#new-pizza").submit(function(event){
-        event.preventDefault;
+        event.preventDefault();
+
 
         //number of pizzas
-        var inputtedQuantity = $("$input#quantity").val();
+        var inputtedQuantity = $("input#quantity").val();
 
         //size of pizzas
-        var inputtedSize = $("$input#size").val().toLowerCase();
+        var inputtedSize = $("input#size").val().toLowerCase();
 
         //Gets the value from the multiple toppings inputs with the class ".pizza-topping"
-        var inputtedToppings = $("#pizza-toppings .pizza-topping").each(function(){
-            $(this).val();
-        });
+        var inputtedToppings1 = $("#topping1").val();
+        var inputtedToppings2 = $("#topping2").val();
+        var inputtedToppings3 = $("#topping3").val();
+        var inputtedToppings4 = $("#topping4").val();
+        var inputtedToppings5 = $("#topping5").val();
 
-        //total price of pizzas
-        var outputtedPrice = (inputtedSize + inputtedToppings) * inputtedQuantity;
+        var toppings = [inputtedToppings1, inputtedToppings2, inputtedToppings3, inputtedToppings4, inputtedToppings5];
 
+        var newPizza = new Pizza(inputtedQuantity, inputtedSize, toppings);
+        //calculate price
+        var finalPrice = newPizza.pizzaPrice();
+        console.log(toppings.length);
 
-        var newPizza = new Pizza(inputtedQuantity, inputtedSize, inputtedToppings, outputtedPrice);
+        $("#finalorder").show();
+          $(".pizza-quantity").text(newPizza.quantity);
+          $(".pizza-size").text(inputtedSize);
+          $(".pizza-topping").text(toppings.join());
+          $(".pizza-price").text(newPizza.price);
 
-        //NOT YET WORKING
-        //Appends user input to the pizzas list
-        $("ul#pizzas").append("<li><span class = 'pizza-quantity'>" + newPizza.pizzaQuantity + "</span></li>" +
-                                "<li><span class = 'pizza-size'>" + newPizza.pizzaSize + "</span></li>" +
-                                "<li><span class = 'pizza-price'>" + newPizza.pizzaPrice + "</span></li>");
-    });
-
+      });
 });
