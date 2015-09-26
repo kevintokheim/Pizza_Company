@@ -46,7 +46,21 @@ Pizza.prototype.pizzaPrice = function(){
         this.size = 15;
     }
 
-    this.price = (parseInt(this.size) + parseInt(this.toppings.length)) * parseInt(this.quantity);
+    // for (var i = 0; i <= this.toppings.length; i++){
+    //     if (this.toppings.length[i] == "" || this.toppings.length[i] == 0){
+    //         delete(this.toppings[i]);
+    //     } else {
+    //         continue;
+    //     }
+    // }
+
+    var toppingsArray = this.toppings.filter(function(string){
+        return /\S/.test(string);
+    });
+
+    console.log(parseInt(toppingsArray.length));
+
+    this.price = (parseInt(this.size) + parseInt(toppingsArray.length)) * parseInt(this.quantity);
 
     return this.price;
 };
